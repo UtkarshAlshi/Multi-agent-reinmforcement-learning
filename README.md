@@ -229,15 +229,3 @@ Software Engineer | Reinforcement Learning | Financial ML
 Built out of curiosity, engineering rigor, and a desire to understand how intelligent systems allocate capital under uncertainty.
 
 ---
-
-## 📝 License
-
-[Add your license here]
-
-## 🤝 Contributing
-
-[Add contribution guidelines if applicable]
-
----
-
-**Just say the word 👌**
