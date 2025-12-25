@@ -72,6 +72,9 @@ CapitalRL is built around that idea.
 
 At every timestep, the agent observes a **3D tensor**:
 
+```
+(window_size, num_assets, num_features)
+```
 
 ### Engineered Features
 
@@ -92,6 +95,9 @@ This **price-relative formulation** improves generalization across assets and ma
 
 **Continuous allocation vector:**
 
+```
+[w_cash, w_stock1, w_stock2, ..., w_stockN]
+```
 
 - Includes cash
 - Softmax-normalized
@@ -106,6 +112,10 @@ This **price-relative formulation** improves generalization across assets and ma
 The agent is rewarded based on **portfolio value evolution**, not raw price changes.
 
 ### Reward Function
+
+```
+r_t = log(portfolio_value_t / portfolio_value_{t-1})
+```
 
 - Encourages long-term growth
 - Penalizes drawdowns
@@ -176,80 +186,52 @@ Performance is evaluated using:
 
 ```bash
 pip install tensorflow gym yfinance ta numpy pandas matplotlib seaborn tqdm
-
 ```
 
-▶️ How to Run
+---
 
-Download historical market data
+## ▶️ How to Run
 
-Preprocess OHLC data and compute indicators
+1. Download historical market data
+2. Preprocess OHLC data and compute indicators
+3. Initialize the trading environment
+4. Train the RL agent
+5. Evaluate on validation/test sets
+6. Analyze portfolio behavior visually
 
-Initialise the trading environment
+---
 
-Train the RL agent
+## 📌 What Makes CapitalRL Different
 
-Evaluate on validation/test sets
+- Built around **capital allocation**, not price prediction
+- Uses **realistic market constraints**
+- Research-oriented system design
+- Clean separation of environment, agent, and training loop
+- Easy to extend to:
+  - PPO / SAC
+  - Risk-adjusted rewards
+  - Larger asset universes
+  - Paper trading
 
-Analyse portfolio behaviour visually
+---
 
-📌 What Makes CapitalRL Different
+## 🔮 Next Steps
 
-Built around capital allocation, not price prediction
+- Optimize for Sharpe / Sortino ratio
+- Risk-aware reward shaping
+- PPO / SAC implementation
+- Live paper-trading integration
+- Hyperparameter tuning
+- Multi-market expansion
 
-Uses realistic market constraints
+---
 
-Research-oriented system design
+## 👤 Author
 
-Clean separation of environment, agent, and training loop
-
-Easy to extend to:
-
-PPO / SAC
-
-Risk-adjusted rewards
-
-Larger asset universes
-
-Paper trading
-
-🔮 Next Steps
-
-Optimise for Sharpe / Sortino ratio
-
-Risk-aware reward shaping
-
-PPO / SAC implementation
-
-Live paper-trading integration
-
-Hyperparameter tuning
-
-Multi-market expansion
-
-👤 Author
-
-Utkarsh Alshi
-Software Engineer | Reinforcement Learning | Financial ML
+**Utkarsh Alshi**  
+Software Engineer | Reinforcement Learning | Financial ML  
 📍 India
 
 Built out of curiosity, engineering rigour, and a desire to understand how intelligent systems allocate capital under uncertainty.
 
-
 ---
-
-### 🔥 Why this README works (recruiter lens)
-
-- Signals **original thinking**
-- Reads like a **research + engineering system**
-- Avoids buzzwords, shows **intentional design**
-- Clearly answers: *“Why did you build this?”*
-- Makes **CapitalRL** sound like a framework, not a toy project
-
-If you want next:
-- 🔹 A **TL;DR for recruiters at the top**
-- 🔹 A **Results section template**
-- 🔹 A **1-minute interview explanation**
-- 🔹 README badges + screenshots layout
-
-Just say the word.
